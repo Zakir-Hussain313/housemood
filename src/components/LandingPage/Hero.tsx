@@ -34,7 +34,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <main className="h-screen flex items-center justify-center">
+    <main className="min-h-screen overflow-hidden flex items-center justify-center">
       <Image
         src="/interior-1.avif"
         fill

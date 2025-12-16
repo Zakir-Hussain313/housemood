@@ -258,6 +258,10 @@
 }
 
 @media (max-width : 600px) {
+  .heroTexts {
+    padding: 0 1rem;
+  }
+
   .logoClose {
     padding: 2rem 1.7rem;
   }
@@ -274,9 +278,6 @@
     padding: 2.5rem 0;
   }
 
-  .heroTexts {
-    padding: 0 3rem;
-  }
 
   .texts {
     margin: 1rem 0;
