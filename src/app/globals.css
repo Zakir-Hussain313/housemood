@@ -1,8 +1,438 @@
 @import "tailwindcss";
 
-*{
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.fullScreenNav {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  opacity: 0;
+}
+
+.logoClose {
+  padding: 3rem 3rem;
+}
+
+.navlinks {
+  padding: 3rem;
+}
+
+.heroTexts {
+  padding: 0 12rem;
+}
+
+.btn {
+  padding: 0.8rem 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.ArrowButton{
+  margin-top: 2rem;
+}
+
+.texts {
+  margin: 1.5rem 0;
+}
+
+.statSection {
+  padding: 4rem 0;
+}
+
+.statsText {
+  padding: 4rem 0 4rem 30vw;
+}
+
+.numbersContainer {
+  padding: 3rem 3rem;
+}
+
+.statsDiv {
+  margin: 2rem 0;
+  padding-bottom: 25px;
+}
+
+.sectionEnd {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.sectionEnd::after {
+  content: '';
+  display: block;
+  width: 85vw;
+  height: 4px;
+  background-color: #101828;
+  margin-top: 5rem;
+}
+
+.projectsHeading {
+  padding: 1rem 0 3rem 3rem;
+}
+
+.weProud {
+  padding-left: 1.5rem;
+}
+
+.imageName {
+  padding: 1.2rem 0 0.4rem 1rem;
+}
+
+.imageLocation {
+  padding-left: 1rem;
+}
+
+.imageYear {
+  padding-left: 1rem;
+
+}
+
+.projectsBtn {
+  padding: 4rem 4vw 4rem 50vw;
+}
+
+.processStart {
+  padding: 1.5rem;
+}
+
+.stepsDiv {
+  margin: 0 0 1rem 2rem;
+}
+
+.processHeading {
+  padding: 1rem 2rem 2rem 4rem;
+  margin-right: 10rem;
+}
+
+.processTitle {
+  padding: 1rem 0 0 0;
+}
+
+.processDes {
+  padding: .5rem 0 1rem 0;
+}
+
+.processIndex {
+  padding: 1rem 0 0 1rem;
+}
+
+.teamStatement {
+  margin: 2rem 0 2rem 2rem;
+}
+
+.teamOwner {
+  margin-bottom: 3rem;
+}
+
+.faq-container {
+  padding: 80px 20px 80px 20px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 20px;
+  width: 100%;
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.125rem;
+  /* text-lg */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.faq-plus {
+  transition: transform 0.3s ease;
+}
+
+.faq-plus.open {
+  transform: rotate(315deg);
+}
+
+.faq-answer {
   overflow: hidden;
+  transition: max-height 0.5s ease, margin-top 0.5s ease, padding-top 0.5s ease;
+  max-height: 0;
+  margin-top: 0;
+  padding-top: 0;
+  color: #4B5563;
+  /* gray-600 */
+}
+
+.faq-answer.open {
+  margin-top: 12px;
+  padding-top: 6px;
+}
+
+.scroll {
+  padding: 1rem;
+}
+
+.testiDiv {
+  padding: 80px 0;
+}
+
+.TestiHeading {
+  padding-left: 3rem;
+  padding-top: 3rem;
+}
+
+.clientsPraise {
+  padding-left: 4rem;
+  padding-top: 1rem;
+}
+
+.Footer {
+  padding-block: calc(var(--spacing) * 12)
+}
+
+.FooterDiv {
+  @media (width >=48rem
+
+    /* 768px */
+  ) {
+    padding-inline: calc(var(--spacing) * 20)
+      /* 5rem = 80px */
+    ;
+  }
+
+  padding-inline: calc(var(--spacing) * 5);
+  margin-inline: auto;
+}
+
+.FooteraboutH2,
+.FooterQuickH2,
+.FooterServicesH2,
+.FooterContactH2,
+.FooterContactLastp {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+
+.FooterContactp{
+  margin-bottom: calc(var(--spacing) * 2);
+}
+
+.FooterBottom{
+  padding-top: calc(var(--spacing) * 6);
+  margin-top: calc(var(--spacing) * 10);
+}
+
+.advanLastDiv{
+  margin-bottom: 5rem;
+}
+
+@media (max-width : 900px) {
+  .logoClose {
+    padding: 2rem 1.7rem;
+  }
+
+  .heroTexts {
+    padding: 0 7rem;
+  }
+
+  .statsText {
+    padding: 0 0 0 10vw;
+  }
+
+}
+
+@media (max-width : 600px) {
+  .logoClose {
+    padding: 2rem 1.7rem;
+  }
+
+  .socialLinks {
+    padding: 0 3rem;
+  }
+
+  .socialLinks:last-child {
+    padding: 0 4rem;
+  }
+
+  .statSection {
+    padding: 2.5rem 0;
+  }
+
+  .heroTexts {
+    padding: 0 3rem;
+  }
+
+  .texts {
+    margin: 1rem 0;
+  }
+
+  .projectsBtn {
+    padding: 4rem 4vw 4rem 30vw;
+  }
+
+  .projectsHeading {
+    padding: 0 0 3rem 1.5rem;
+  }
+
+  .textPadding {
+    padding-left: 2rem;
+  }
+
+  .processHeading {
+    padding: 1rem 1rem 2rem 2rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .teamStatement {
+    margin: 1rem 0 2rem 1rem;
+  }
+
+  .TestiHeading {
+    padding-left: 1rem;
+    padding-top: 3rem;
+  }
+
+  .clientsPraise {
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+
+  .advanLastDiv{
+  margin-bottom: 5rem;
+}
+
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
