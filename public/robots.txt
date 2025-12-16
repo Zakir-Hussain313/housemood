@@ -1,0 +1,6 @@
+# Allow all crawlers
+User-agent: *
+Disallow:
+
+# Link to your sitemap
+Sitemap: https://housemood-beige.vercel.app/sitemap.xml
