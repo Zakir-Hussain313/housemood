@@ -25,31 +25,43 @@ export default function FullScreenNav() {
 
     const containerRef = useRef(null);
     const timeline = useRef<gsap.core.Timeline | null>(null);
-    const logoRefs = useRef<(HTMLHeadingElement | null)[]>([])
-    const linkRefs = useRef<(HTMLAnchorElement | null)[]>([])
-    const socialRefs = useRef<(HTMLAnchorElement | null)[]>([])
-    const headerTitleRef = useRef<HTMLHeadingElement | null>(null)
-    const headerMenuBtnRef = useRef<HTMLButtonElement | null>(null)
-
-
-
+    const logoRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+    const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+    const socialRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+    const headerHeadingRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+    const headerButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
     const handleMenu = () => setIsMenuOpen((prev) => !prev);
 
     useGSAP(() => {
         const tl = gsap.timeline({ paused: true });
 
+        const navHeaderElements = [
+  headerHeadingRefs.current[1],
+  headerButtonRefs.current[1],
+];
+
         gsap.set(containerRef.current, {
             clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
             opacity: 1,
         });
 
-        gsap.set([headerTitleRef.current, headerMenuBtnRef.current, ...logoRefs.current, ...linkRefs.current, ...socialRefs.current], {
+        gsap.set([
+            ...headerHeadingRefs.current,
+            ...headerButtonRefs.current,
+            ...logoRefs.current,
+            ...linkRefs.current,
+            ...socialRefs.current,
+            ...navHeaderElements
+        ], {
             y: 100,
             opacity: 0,
         });
 
-        gsap.to([headerTitleRef.current, headerMenuBtnRef.current], {
+        gsap.to([
+            ...headerHeadingRefs.current,
+            ...headerButtonRefs.current
+        ], {
             y: 0,
             opacity: 1,
             duration: 1.25,
@@ -62,9 +74,10 @@ export default function FullScreenNav() {
             ease: "power4.inOut",
             clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         })
-            .to(
-                logoRefs.current,
-                {
+            .to([
+                ...headerHeadingRefs.current,
+                ...headerButtonRefs.current
+            ],{
                     y: 0,
                     opacity: 1,
                     duration: 0.7,
@@ -110,7 +123,7 @@ export default function FullScreenNav() {
             <div className={`logoMenu text-white bg-transparent`}>
                 <div className="overflow-hidden absolute top-10 left-5">
                     <h1
-                        ref={headerTitleRef}
+                        ref={(el) => { headerHeadingRefs.current[0] = el }}
                         className="text-xl font-semibold text-white"
                     >
                         CozyInc
@@ -119,7 +132,7 @@ export default function FullScreenNav() {
 
                 <div className="overflow-hidden absolute top-10 right-7">
                     <button
-                        ref={headerMenuBtnRef}
+                        ref={(el) => { headerButtonRefs.current[0] = el }}
                         className="text-xl font-semibold cursor-pointer"
                         onClick={handleMenu}
                     >
@@ -135,13 +148,13 @@ export default function FullScreenNav() {
                 {/* TOP BAR */}
                 <div className="logoClose flex justify-between items-center overflow-hidden">
                     <h1
-                        ref={headerTitleRef}
+                        ref={(el) => { headerHeadingRefs.current[1] = el }}
                         className="text-xl font-semibold text-white"
                     >
                         CozyInc
                     </h1>
                     <button
-                        ref={headerMenuBtnRef}
+                        ref={(el) => { headerButtonRefs.current[1] = el }}
                         className="text-xl font-semibold text-white cursor-pointer overflow-hidden"
                         onClick={handleMenu}
                     >
@@ -172,7 +185,7 @@ export default function FullScreenNav() {
                             <div key={i} className="overflow-hidden">
                                 <Link
                                     href={link.path}
-                                    ref={(el) => { linkRefs.current[i] = el }}
+                                    ref={(el) => { socialRefs.current[i] = el }}
                                     className="sm:inline-block hidden sm:text-xl font-semibold"
                                 >
                                     {link.label}

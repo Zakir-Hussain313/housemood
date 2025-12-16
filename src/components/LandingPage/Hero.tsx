@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Lora } from "next/font/google";
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { MdArrowRightAlt } from 'react-icons/md';
 
 const playfair = Lora({
   subsets: ["latin"],
@@ -57,9 +58,10 @@ export default function Hero() {
         >
           Bringing your ideas to life with spaces that are beautiful, functional, and uniquely yours        </h1>
 
-        <div className='btnDiv flex justify-center items-center'>
-          <button className="uppercase rounded-4xl w-[50vw] md:w-[25vw] lg:w-[20vw] h-12 bg-gray-900 text-base md:text-lg text-white font-semibold cursor-pointer transition transform duration-300 hover:scale-105 hover:bg-gray-950 hover:shadow-lg">
-            Start your project
+        <div className="flex justify-center items-center text-white">
+          <button className="group text-2xl flex items-center gap-2 font-semibold cursor-pointer border-b-2 border-gray-500">
+            Start Your Project
+            <MdArrowRightAlt className="transition-transform duration-200 group-hover:translate-x-2" />
           </button>
         </div>
       </div>
